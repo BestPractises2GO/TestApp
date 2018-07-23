@@ -10,6 +10,7 @@ import butterknife.ButterKnife;
 import de.testapp.R;
 import de.testapp.view.adapter.FragmentTabAdapter;
 import de.testapp.view.base.BaseActivity;
+import de.testapp.view.maps.MapsFragment;
 import de.testapp.view.parta.Parta;
 import de.testapp.view.partb.Partb;
 import de.testapp.view.userprofil.UserProfileFragment;
@@ -31,7 +32,7 @@ public class HomeActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         //Tablayout + ViewPager
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(4);
         adapterTab = new FragmentTabAdapter(getSupportFragmentManager());
         addFragmentsToViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
@@ -48,7 +49,7 @@ public class HomeActivity extends BaseActivity {
         f3.setArguments(bundle);
 
         adapterTab.addFragment(f3, "Profil");
-
+        adapterTab.addFragment(new MapsFragment(), "Map");
         viewPager.setAdapter(adapterTab);
     }
 

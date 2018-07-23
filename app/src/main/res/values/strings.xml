@@ -4,4 +4,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment PART A</string>
     <string name="hello_blank_fragment2">Ich bin PART B</string>
+    <string name="google_maps_API_key">AIzaSyDHhVwCXnREOujctG1SwhixzzQkA2SfdO8</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

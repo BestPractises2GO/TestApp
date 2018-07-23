@@ -8,6 +8,8 @@ import dagger.android.ContributesAndroidInjector;
 import de.testapp.di.scope.PerActivity;
 import de.testapp.di.scope.PerFragment;
 import de.testapp.view.base.BaseActivityModule;
+import de.testapp.view.maps.MapsFragment;
+import de.testapp.view.maps.MapsFragmentModule;
 import de.testapp.view.parta.Parta;
 import de.testapp.view.parta.PartaModule;
 import de.testapp.view.partb.Partb;
@@ -33,6 +35,10 @@ public abstract class HomeActivityModule {
     @PerFragment
     @ContributesAndroidInjector(modules = UserProfileFragmentModule.class)
     abstract UserProfileFragment bindUserProfilFragment();
+
+    @PerFragment
+    @ContributesAndroidInjector(modules = MapsFragmentModule.class)
+    abstract MapsFragment bindMapsFragment();
 
     @Binds
     @PerActivity

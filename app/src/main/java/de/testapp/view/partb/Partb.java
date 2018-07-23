@@ -18,6 +18,9 @@ import java.util.List;
 import de.testapp.R;
 import de.testapp.view.adapter.PartBAdapter;
 import de.testapp.view.base.BaseFragment;
+import de.testapp.view.maps.MapsFragment;
+import de.testapp.view.parta.Parta;
+import de.testapp.view.userprofil.UserProfileFragment;
 
 
 /**
@@ -51,6 +54,8 @@ public class Partb extends BaseFragment implements PartBAdapter.BAdapterListener
         l1.add("test4");
         mAdapter.addItems(l1);
         mAdapter.notifyDataSetChanged();
+
+        addChildFragment(R.id.frame2, new MapsFragment());
         return v;
     }
 
