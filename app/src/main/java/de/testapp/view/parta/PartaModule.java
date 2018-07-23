@@ -1,4 +1,4 @@
-package de.testapp.view;
+package de.testapp.view.parta;
 
 import android.support.v4.app.Fragment;
 
@@ -10,10 +10,11 @@ import de.testapp.di.scope.PerFragment;
 import de.testapp.view.base.BaseFragmentModule;
 
 @Module(includes = BaseFragmentModule.class)
-public abstract class UserProfileFragmentModule {
+public abstract class PartaModule {
 
-    @PerFragment
-    @Named(BaseFragmentModule.FRAGMENT)
     @Binds
-    abstract Fragment fragment(UserProfileFragment userProfileFragment);
+    @Named(BaseFragmentModule.FRAGMENT)
+    @PerFragment
+    abstract Fragment fragment(Parta parta);
+
 }

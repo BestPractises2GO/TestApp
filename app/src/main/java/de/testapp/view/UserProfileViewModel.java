@@ -19,10 +19,11 @@ public class UserProfileViewModel extends ViewModel {
     }
 
 
+    //Lade Daten
     public void init(String userId) {
-        if (this.user != null) {
-            return;
-        }
+       // if (this.user != null) {
+        //    return;
+       // }
         user = userRepo.getUser(userId);
     }
 

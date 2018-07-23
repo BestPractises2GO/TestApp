@@ -1,5 +1,6 @@
-package de.testapp.model;
+package de.testapp.model.remote;
 
+import de.testapp.model.User;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

@@ -1,4 +1,4 @@
-package de.testapp.view;
+package de.testapp.view.parta;
 
 
 import android.os.Bundle;

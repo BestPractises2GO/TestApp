@@ -1,4 +1,4 @@
-package de.testapp.model;
+package de.testapp.model.local;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -6,6 +6,8 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
 import java.util.List;
+
+import de.testapp.model.Product;
 
 @Dao
 public interface ProductDao {

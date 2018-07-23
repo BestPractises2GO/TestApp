@@ -5,9 +5,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import dagger.Binds;
 import dagger.Module;
-import dagger.android.ContributesAndroidInjector;
 import dagger.multibindings.IntoMap;
-import de.testapp.FactoryViewModel;
 import de.testapp.view.UserProfileViewModel;
 
 @Module

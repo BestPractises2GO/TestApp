@@ -1,17 +1,23 @@
-package de.testapp.view;
+package de.testapp.view.userprofil;
 
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import javax.inject.Inject;
 
@@ -19,6 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.testapp.R;
 import de.testapp.model.User;
+import de.testapp.view.UserProfileViewModel;
 import de.testapp.view.base.BaseFragment;
 
 /**
@@ -44,7 +51,8 @@ public class UserProfileFragment extends BaseFragment {
     TextView company;
     @BindView(R.id.fragment_user_profile_website)
     TextView website;
-
+    @BindView(R.id.swipe_container_user_profile)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,13 +63,24 @@ public class UserProfileFragment extends BaseFragment {
         return view;
     }
 
+    String userLogin;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String userLogin = getArguments().getString(UID_KEY);
+        if(getArguments() != null) {
+             userLogin = getArguments().getString(UID_KEY);
+        }else{
+             userLogin = "null";
+        }
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserProfileViewModel.class);
         viewModel.init(userLogin);
         viewModel.getUser().observe(this, user -> updateUI(user));
+
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            viewModel.init(userLogin);
+            swipeRefreshLayout.setRefreshing(false);
+        });
     }
 
     // -----------------
@@ -70,7 +89,8 @@ public class UserProfileFragment extends BaseFragment {
 
     private void updateUI(@Nullable User user){
         if (user != null){
-           // Glide.with(this).load(user.getAvatar_url()).apply(RequestOptions.circleCropTransform()).into(imageView);
+            String sponge_gif = "https://thumbs.gfycat.com/ReasonableHauntingCormorant-max-1mb.gif";
+            Glide.with(this).load(sponge_gif).apply(RequestOptions.circleCropTransform()).into(imageView);
             this.username.setText(user.getName());
             this.company.setText(user.getCompany());
             this.website.setText(user.getBlog());

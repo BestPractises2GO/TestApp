@@ -1,4 +1,4 @@
-package de.testapp.view;
+package de.testapp;
 
 import android.app.Activity;
 import android.app.Application;

@@ -2,8 +2,6 @@ package de.testapp.di;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,20 +11,13 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Singleton;
 
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import dagger.android.ContributesAndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
-import de.testapp.di.scope.PerActivity;
-import de.testapp.model.UserDao;
-import de.testapp.model.UserDatabase;
-import de.testapp.model.UserRepository;
-import de.testapp.model.UserWebservice;
-import de.testapp.view.App;
-import de.testapp.view.HomeActivity;
-import de.testapp.view.HomeActivityModule;
-import de.testapp.view.base.BaseActivityModule;
+import de.testapp.model.local.UserDao;
+import de.testapp.model.local.UserDatabase;
+import de.testapp.model.remote.UserWebservice;
+import de.testapp.App;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -92,7 +83,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
     @Provides
     Application provideApplication(App application){
         return application;
-    };
+    }
 
     }
 

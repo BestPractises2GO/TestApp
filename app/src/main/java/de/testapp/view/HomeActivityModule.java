@@ -1,6 +1,5 @@
 package de.testapp.view;
 
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 
 import dagger.Binds;
@@ -9,7 +8,12 @@ import dagger.android.ContributesAndroidInjector;
 import de.testapp.di.scope.PerActivity;
 import de.testapp.di.scope.PerFragment;
 import de.testapp.view.base.BaseActivityModule;
-import de.testapp.view.base.BaseFragmentModule;
+import de.testapp.view.parta.Parta;
+import de.testapp.view.parta.PartaModule;
+import de.testapp.view.partb.Partb;
+import de.testapp.view.partb.PartbModule;
+import de.testapp.view.userprofil.UserProfileFragment;
+import de.testapp.view.userprofil.UserProfileFragmentModule;
 
 @Module(includes = BaseActivityModule.class)
 public abstract class HomeActivityModule {

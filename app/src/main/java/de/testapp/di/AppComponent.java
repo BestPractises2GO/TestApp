@@ -4,7 +4,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import dagger.android.AndroidInjector;
-import de.testapp.view.App;
+import de.testapp.App;
 
 @Singleton
 @Component(modules = {AppModule.class, ActivityBuilder.class})

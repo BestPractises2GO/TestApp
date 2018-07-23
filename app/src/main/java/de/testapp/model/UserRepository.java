@@ -11,7 +11,9 @@ import java.util.concurrent.Executor;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import de.testapp.view.App;
+import de.testapp.App;
+import de.testapp.model.local.UserDao;
+import de.testapp.model.remote.UserWebservice;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,7 +35,8 @@ public class UserRepository {
         this.executor = executor;
     }
 
-
+    //Lade Daten von REST API wenn es die Regel zulässt, und dann speicher Daten in offline Datenbank
+    //Zum Schluß --> lade immer von offline Datenbank
     public LiveData<User> getUser(String userLogin) {
         refreshUser(userLogin); // try to refresh data if possible from Github Api
         return userDao.load(userLogin); // return a LiveData directly from the database.
