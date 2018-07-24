@@ -53,6 +53,11 @@ public class HomeActivity extends BaseActivity {
         viewPager.setAdapter(adapterTab);
     }
 
-
-
+/* Methode von Interface von Fragment PartB und Daten von PartB zum Fragment MapsFragment zu senden
+    @Override
+    public void sendLatLng(Float v1, Float v2) {
+        String tag = "android:switcher:" + R.id.viewpager_home + ":" + 3;
+        MapsFragment mapsFragment = (MapsFragment) getSupportFragmentManager().findFragmentByTag(tag);
+        mapsFragment.displayReceivedData(v1,v2);
+    } */
 }

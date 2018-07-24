@@ -17,4 +17,8 @@
         <item name="tabSelectedTextColor">#ecfcff</item>
     </style>
 
+    <style name="CustomInput" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorPrimary">#515c5e</item>
+        <item name="android:textColorSecondary">#37474f</item>
+    </style>
 </resources>
